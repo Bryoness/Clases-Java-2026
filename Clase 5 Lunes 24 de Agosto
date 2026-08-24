@@ -1,0 +1,173 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package colecciones;
+import java.util.Scanner;
+import java.util.Arrays;      
+
+/**
+ *
+ * @author pv-alumno
+ */
+public class Colecciones {
+static Scanner scan = new Scanner(System.in);
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+
+    producto p1 = new producto("Kapo", 100, 200);
+    producto p2 = new producto("Sandia", 5000, 30);
+    producto p3 = new producto("Chocapic", 4000, 25);
+        
+        float total = 0;
+        
+        while (true) {
+            System.out.println("1.- Mostrar productos");
+            System.out.println("2.- Mostrar Total a pagar");
+            System.out.println("3.- Salir");
+            System.out.println("¿Qué desea hacer?");
+            
+            int op=scan.nextInt();
+            switch(op){
+                case 1:
+                    int opc=0;
+                    while (opc!=4){
+                                System.out.println("¿Qué producto comprará?");
+                                System.out.println("1.- "+p1);
+                                System.out.println("2.- "+p2);
+                                System.out.println("3.- "+p3);  
+                                System.out.println("4.- Salir");
+                                opc=scan.nextInt();
+                                switch(opc){
+                                    case 1:
+                                        System.out.println("Usted ha comprado "+p1.getNombre());
+                                        total=total+p1.getPrecio();
+                                        p1.setCant(p1.getCant()-1);
+                                        break;
+                                    case 2:
+                                        System.out.println("Usted ha comprado "+p2.getNombre());
+                                        total=total+p2.getPrecio();
+                                        p2.setCant(p2.getCant()-1);
+                                        break;
+                                    case 3:
+                                        System.out.println("Usted ha comprado "+p3.getNombre());
+                                        total=total+p3.getPrecio();
+                                        p3.setCant(p3.getCant()-1);;
+                                        break;
+                                    case 4:
+                                        System.out.println("Saliendo del menú ");
+                                        break;
+                                    default:
+                                        System.out.println("Opción Inválida");
+                                                    
+                                }
+                        
+                        
+                    }
+                    break;
+                case 2:
+                    System.out.println("El total a pagar es: " + total*1.19);
+                    
+                    break;
+                case 3:
+                    System.out.println("Cerrando sistema");
+                    break;
+                default:
+                    System.out.println("Opción Inválida");
+                    break;
+                
+                
+            }    
+            
+        }
+
+
+
+
+
+
+
+    }
+    
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package colecciones;
+
+
+/**
+ *
+ * @author pv-alumno
+ */
+public class producto {
+    String nombre;
+    float precio;
+    int cant;
+    
+    
+//crear un menú que tenga lo siguiente
+//(con 3 productos previamente creados
+//1.- mostrar productos
+//    1.- Papa 1200       2.- Calcetines  2000    3.-Liquido freno 3000
+//2.- mostrar total a pagar (calcular IVA)
+//3.- Salir (mostrar total pagado y mensaje de despedida)        
+//Deben ser objetos con esos atributos
+
+    public producto() {
+    }
+
+    public producto(String nombre, float precio, int cant) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.cant = cant;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public float getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+
+    public int getCant() {
+        return cant;
+    }
+
+    public void setCant(int cant) {
+        this.cant = cant;
+    }
+
+    @Override
+    public String toString() {
+        return "producto{" + "nombre=" + nombre + ", precio=" + precio + ", cant=" + cant + '}';
+    }
+
+   
+
+
+    
+}
+
