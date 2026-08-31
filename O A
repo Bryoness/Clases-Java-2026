@@ -1,0 +1,143 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+
+package validaciones;
+import java.util.Scanner;
+/**
+ *
+ * @author pv-alumno
+ */
+public class Metodos {
+    Scanner lector = new Scanner(System.in);
+    public String recibirString(String recibir, Integer minimo, Integer maximo){
+        String texto = "";
+        boolean validacion = false;
+        do{
+            System.out.println("Ingrese "+recibir);
+            texto = lector.nextLine();
+            validacion = validarString(texto, minimo, maximo);
+        }while(validacion != true);
+        return texto;
+    }
+    
+    public boolean validarString(String texto, Integer minimo, Integer maximo){
+        String sinEspacios = texto.trim();
+        if(sinEspacios.length() == 0){
+            System.out.println("Texto vacío, intente nuevamente");
+            return false;
+        }
+        
+        if(sinEspacios.length() < minimo){
+            System.out.println("son mínimo "+ minimo+" caracteres");
+            return false;
+        }
+        
+        if(sinEspacios.length() > maximo){
+            System.out.println("son máximo "+ maximo+" caracteres");
+            return false;
+        }
+        return true;
+        
+    }
+    public String recibirFecha(String recibir, Integer minimo, Integer maximo) {
+        String texto = "";
+        boolean validacion = false;
+        do{
+            System.out.println("Ingrese " + recibir + "(dd/mm/yyyy)");
+            texto = lector.nextLine();
+            validacion = validarFecha(texto, minimo, maximo);
+        }while(validacion != true);
+        return texto;   
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package validaciones;
+
+/**
+ *
+ * @author pv-alumno
+ */
+public class Validaciones {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Metodos mt = new Metodos();
+        String texto = mt.recibirString("nombre", 2, 20);
+        System.out.println("Hola "+texto+" _");
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
